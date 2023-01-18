@@ -15,10 +15,6 @@ const removeOneExpense = async (id) => {
   return await Expense.deleteOne({_id: id});
 }
 
-const removeAllExpenses = async () => {
-  return await Expense.deleteMany({});
-}
-
 const pathExpense = async (id, cost, date, place) => {
   let args = {id: id, place: place, date: date, cost: cost};
   return await Expense.findOneAndUpdate(args);
@@ -28,7 +24,6 @@ module.exports = {
   getExpenses,
   createNewExpense,
   removeOneExpense,
-  removeAllExpenses,
   pathExpense
 }
   

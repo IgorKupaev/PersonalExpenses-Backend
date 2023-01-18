@@ -1,4 +1,4 @@
-const { getExpenses, createNewExpense, removeOneExpense, removeAllExpenses, pathExpense } = require("../services/expense-services");
+const { getExpenses, createNewExpense, removeOneExpense, pathExpense } = require("../services/expense-services");
 
 const allExpenses = async (req, res) => {
   try {
@@ -31,16 +31,6 @@ const removeExpense = async (req, res) => {
   }
 }
 
-const removeAll = async (req, res) => {
-  try {
-    removeAllExpenses().then(result => {
-      res.status(200).send(result);
-    });
-  } catch (error) {
-    res.status(400).send('Error while removing expenses');
-  }
-}
-
 const editExpense = async (req, res) => {
   try {
     let args = [req.body.id, req.body.cost, req.body.date, req.body.place];
@@ -56,6 +46,5 @@ module.exports = {
   allExpenses,
   createExpense,
   removeExpense,
-  removeAll,
   editExpense
 }
