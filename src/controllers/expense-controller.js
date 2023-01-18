@@ -21,7 +21,6 @@ const createExpense = async (req, res) => {
 };
 
 const removeExpense = async (req, res) => {
-  res.set('Access-Control-Allow-Headers', 'http://localhost:8000');
   try {
     await removeOneExpense(req.params['id']).then(result => {
       res.status(202).send(result);
