@@ -23,7 +23,7 @@ const createExpense = async (req, res) => {
 const removeExpense = async (req, res) => {
   res.set('Access-Control-Allow-Headers', 'http://localhost:8000');
   try {
-    removeOneExpense(req.params['id']).then(result => {
+    await removeOneExpense(req.params['id']).then(result => {
       res.status(200).send(result);
     });
   } catch (error) {
@@ -34,7 +34,7 @@ const removeExpense = async (req, res) => {
 const editExpense = async (req, res) => {
   try {
     let args = [req.body.id, req.body.cost, req.body.date, req.body.place];
-    pathExpense(...args).then(result => {
+    await pathExpense(...args).then(result => {
       res.status(200).send(result);
     })
   } catch (error) {

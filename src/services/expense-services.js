@@ -16,8 +16,8 @@ const removeOneExpense = async (id) => {
 }
 
 const pathExpense = async (id, cost, date, place) => {
-  let args = {id: id, place: place, date: date, cost: cost};
-  return await Expense.findOneAndUpdate(args);
+  let args = {place: place, date: date, cost: cost};
+  return await Expense.findByIdAndUpdate(id, args);
 }
 
 module.exports = {
