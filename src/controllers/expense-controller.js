@@ -5,7 +5,7 @@ const allExpenses = async (req, res) => {
     const expenses = await getExpenses();
     res.status(200).send(expenses);
   } catch (error) {
-    res.status(404).send('Error while get expenses');
+    res.status(500).send('Error while get expenses');
   }
 }
 
